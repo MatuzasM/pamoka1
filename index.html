@@ -1,59 +1,62 @@
 <html>
   <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body> 
     <form action="">
-      <div>
-        <label for="student">Student Name</label>
+      <p class="bold" for="Sname">Student Name</p>
+      <div class="flex gap10 col-1">
         <div>
-          <input type="text">
+          <input type="text"><br>
           <label for="firstname">First Name</label>
         </div>
         <div>
-          <input type="text">
+          <input type="text"><br>
           <label for="firstname">Middle Name</label>
         </div>
         <div>
-          <input type="text">
+          <input type="text"><br>
           <label for="firstname">Last Name</label>
         </div>
       </div>
-      <div>
-        <div>
-          <label for="birthdate">Birth Date</label>
-          <div>
+      <div class="flex gap20">
+        <div class="col-2">
+          <p class="bold">Birth Date</p>
+          <div class="select">
             <select name="option">
               <option value=""></option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">...</option>
               <option value="3">12</option>
-            </select>
+            </select><br>
             <label for="month">Month</label>
           </div>
-          <div>
+          <div class="select">
             <select name="option">
               <option value=""></option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">...</option>
               <option value="3">31</option>
-            </select>
+            </select><br>
             <label for="day">Day</label>
           </div>
-          <div>
+          <div class="select">
             <select name="option">
             <option value=""></option>
             <option value="1">2020</option>
             <option value="2">2021</option>
             <option value="3">2022</option>
-          </select>
+          </select><br>
           <label for="year">Year</label>
           </div>
         </div>
-        <div>
-          <label for="gender">Gender</label>
-          <div>
+        <div class="col-3">
+          <p class="bold">Gender</p>
+          <div class="select">
             <select name="option">
               <option value="" disabled selected>Please Select</option>
               <option value="1">1</option>
@@ -63,58 +66,56 @@
           </div>
         </div>
       </div>
-      <div>
-        <label for="address">Address</label>
+      <div class="col-full m-b-25">
+        <p class="bold">Address</p>
+        <input type="text"><br>
+        <label for="street">Street Address</label>
+      </div>
+      <div class="col-full m-b-25">
+        <input type="text"><br>
+        <label for="street">Street Address Line 2</label>
+      </div>
+      <div class="flex gap20 col-half">
         <div>
-          <input type="text">
-          <label for="street">Street Address</label>
+          <input type="text"><br>
+          <label for="city">City</label>
         </div>
         <div>
-          <input type="text">
-          <label for="street">Street Address Line 2</label>
-        </div>
-        <div>
-          <div>
-            <input type="text">
-            <label for="city">City</label>
-          </div>
-          <div>
-            <input type="text">
-            <label for="state">State / Province</label>
-          </div>
-        </div>
-        <div>
-          <input type="text">
-          <label for="postcode">Postal / Zip Code</label>
+          <input type="text"><br>
+          <label for="state">State / Province</label>
         </div>
       </div>
-      <div>
+      <div class="col-full m-b-25">
+        <input type="text"><br>
+        <label for="postcode">Postal / Zip Code</label>
+      </div>
+      <div class="flex gap20 col-half">
         <div>
-          <label for="email">Student E-mail</label>
-          <input type="text" placeholder="ex: myname@example.com">
+          <label class="bold" for="email">Student E-mail</label><br>
+          <input type="text" placeholder="ex: myname@example.com"><br>
           <label for="example-email">example@example.com</label>
         </div>
         <div>
-          <label for="mobile-number">Mobile Number</label>
+          <label class="bold" for="mobile-number">Mobile Number</label><br>
           <input type="text" placeholder="(000) 000-0000">
         </div>
       </div>
-      <div>
+      <div class="flex gap20 col-half">
         <div>
-          <label for="phone-number">Phone Number</label>
+          <label class="bold" for="phone-number">Phone Number</label><br>
           <input type="text" placeholder="(000) 000-0000">
         </div>
         <div>
-          <label for="work-number">Work Number</label>
+          <label class="bold" for="work-number">Work Number</label><br>
           <input type="text" placeholder="(000) 000-0000">
         </div>
       </div>
-      <div>
-        <label for="company">Company</label>
+      <div class="col-half m-b-25">
+        <label class="bold" for="company">Company</label><br>
         <input type="text">
       </div>
-      <div>
-        <label for="courses">Courses</label>
+      <div class="col-half m-b-25">
+        <label class="bold" for="courses">Courses</label><br>
         <select name="option">
           <option value="" disabled selected>Please Select</option>
           <option value="1">php</option>
@@ -122,11 +123,12 @@
           <option value="3">javascript</option>
         </select>
       </div>
-      <div>
-        <label for="comments">Additional Comments</label>
-        <textarea name="" id="" cols="30" rows="10" placeholder="Type here..."></textarea>
+      <div class="col-full m-b-15">
+        <label class="bold margin" for="comments">Additional Comments</label>
+        <textarea name="" id="" cols="" rows="" placeholder="Type here..."></textarea>
       </div>
-      <div>
+      <hr>
+      <div class="flex gap-btn m-t-15">
         <div>
           <button>Submit Application</button>
         </div>
