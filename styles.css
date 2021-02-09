@@ -3,23 +3,6 @@
   padding: 0;
 }
 
-
-/* Support for rtl text, explicit support for Arabic and Hebrew */
-*[dir="rtl"] .select-css, :root:lang(ar) .select-css, :root:lang(iw) .select-css {
-	background-position: left .7em top 50%, 0 0;
-	padding: .6em .8em .5em 1.4em;
-}
-
-/* Disabled styles */
-.select-css:disabled, .select-css[aria-disabled=true] {
-	color: graytext;
-	background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
-	  linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
-}
-.select-css:disabled:hover, .select-css[aria-disabled=true] {
-	border-color: #aaa;
-}
-
 body {
   margin: 100px;
   padding: 40px;
@@ -33,8 +16,17 @@ form {
   font-size: 16px;
 }
 
+/* Internet explorer */
+.flex { display: -ms-flexbox;
+  display: grid;
+  justify-content: start;
+  justify-content: space-between; /*add this line*/
+}
+
 /* Random flex section */
 .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -99,37 +91,36 @@ form {
 }
 
 /* Input, select and textarea fields styling */
-
 input[type=text],
 textarea {
   border-radius: 3px;
   border: 1px solid rgb(202, 201, 201);
   outline: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 
-  /*
-  -moz-appearance:none;  Firefox 
-  -webkit-appearance:none;  Safari and Chrome 
-  appearance:none; */
-
 select {
-  border-radius: 3px;
-  border: 1px solid rgb(202, 201, 201);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background-image: url('dropdown.svg');
+  background-position: 98% center;
+  background-size: 12px 12px; 
+  background-repeat: no-repeat;
   outline: none;
-  /* Prefixed box-sizing rules necessary for older browsers */
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -moz-appearance:none; 
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
   box-sizing: border-box;
 	margin: 0;
+  border-radius: 3px;
+  border: 1px solid rgb(202, 201, 201);
   color: rgb(163, 162, 162);
+  padding-left: 5px;
+}
+
+/* remove default arrow on HTML tag select - IE10+ */
+select::-ms-expand {
+  display: none;
 }
 
 input[type=text],
@@ -140,6 +131,21 @@ select {
 
 input[type=text] {
   padding-left: 5px;
+}
+
+input[type=text]::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: rgb(163, 162, 162);
+}
+
+input[type=text]::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: rgb(163, 162, 162);
+}
+
+input[type=text]:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: rgb(163, 162, 162);
 }
 
 input[type=text]::placeholder,
@@ -153,13 +159,15 @@ textarea {
   height: 200px;
   resize: none; /*remove the resize handle on the bottom right*/
   padding: 10px 0 0 10px;
+  overflow: auto; /*remove scrollbar*/
 }
 
 button {
   background-color: #4caf50;
+  width: 145px;
   border: none;
   color: white;
-  padding: 10px 20px;
+  padding: 10px 4px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
@@ -168,13 +176,14 @@ button {
 }
 
 button:hover {
-  background: darkgreen;
+  background: rgb(10, 165, 10);
 }
 
 hr {
   position: relative;
   border: 0;
   height: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(163, 162, 162), 0.3);
+  width: 770px;
+  left: -40px;
+  border-bottom: 1px solid rgba(163, 162, 162, 0.3);
 }
