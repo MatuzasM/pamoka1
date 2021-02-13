@@ -7,22 +7,22 @@
   <body> 
     <form action="">
       <h4>Student Name</h4>
-      <div class="flex gap10 col-1">
+      <div class="container name-group">
         <div>
           <input type="text"><br>
           <label for="firstname">First Name</label>
         </div>
         <div>
           <input type="text"><br>
-          <label for="firstname">Middle Name</label>
+          <label for="middlename">Middle Name</label>
         </div>
         <div>
           <input type="text"><br>
-          <label for="firstname">Last Name</label>
+          <label for="lastname">Last Name</label>
         </div>
       </div>
-      <div class="flex gap20">
-        <div class="col-2">
+      <div class="container">
+        <div class="date-group">
           <h4>Birth Date</h4>
           <div class="select">
             <select name="option">
@@ -54,7 +54,7 @@
           <label for="year">Year</label>
           </div>
         </div>
-        <div class="col-3">
+        <div class="gender-group">
           <h4>Gender</h4>
           <div class="select">
             <select name="option">
@@ -66,16 +66,16 @@
           </div>
         </div>
       </div>
-      <div class="col-full m-b-25">
+      <div class="form-group margin-bottom-25">
         <h4>Address</h4>
         <input type="text"><br>
         <label for="street">Street Address</label>
       </div>
-      <div class="col-full m-b-25">
+      <div class="form-group margin-bottom-25">
         <input type="text"><br>
         <label for="street">Street Address Line 2</label>
       </div>
-      <div class="flex gap20 col-half">
+      <div class="container form-group-into-two-collumn">
         <div>
           <input type="text"><br>
           <label for="city">City</label>
@@ -85,11 +85,11 @@
           <label for="state">State / Province</label>
         </div>
       </div>
-      <div class="col-full m-b-25">
+      <div class="form-group margin-bottom-25">
         <input type="text"><br>
         <label for="postcode">Postal / Zip Code</label>
       </div>
-      <div class="flex gap20 col-half">
+      <div class="container form-group-into-two-collumn">
         <div>
           <h4>Student E-mail</h4>
           <input type="text" placeholder="ex: myname@example.com"><br>
@@ -100,7 +100,7 @@
           <input type="text" placeholder="(000) 000-0000">
         </div>
       </div>
-      <div class="flex gap20 col-half">
+      <div class="container form-group-into-two-collumn">
         <div>
           <h4>Phone Number</h4>
           <input type="text" placeholder="(000) 000-0000">
@@ -110,11 +110,11 @@
           <input type="text" placeholder="(000) 000-0000">
         </div>
       </div>
-      <div class="col-half m-b-25">
+      <div class="form-group-into-two-collumn margin-bottom-25">
         <h4>Company</h4>
         <input type="text">
       </div>
-      <div class="col-half m-b-25">
+      <div class="form-group-into-two-collumn margin-bottom-25">
         <h4>Courses</h4>
         <select name="option">
           <option value="" disabled selected>Please Select</option>
@@ -123,12 +123,12 @@
           <option value="3">javascript</option>
         </select>
       </div>
-      <div class="col-full m-b-15">
+      <div class="form-group margin-bottom-15">
         <h4>Additional Comments</h4>
         <textarea name="" id="" cols="" rows="" placeholder="Type here..."></textarea>
       </div>
       <hr>
-      <div class="flex gap-btn m-t-15">
+      <div class="container margin-top-15">
         <div>
           <button>Submit Application</button>
         </div>
@@ -137,5 +137,6 @@
         </div>
       </div>
     </form>
+    <script src="js/all.js"></script>
   </body>
 </html>

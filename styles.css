@@ -17,81 +17,83 @@ form {
 }
 
 /* Internet explorer */
-.flex { display: -ms-flexbox;
+.container {
+  display: -ms-flexbox;
   display: grid;
   justify-content: start;
   justify-content: space-between; /*add this line*/
 }
 
-/* Random flex section */
-.flex {
+.container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.gap10 {
-  gap: 10px;
-}
-
-.gap20 {
-  gap: 20px;
-}
-
-.gap-btn {
-  gap: 397px;
-}
-
-/* End flex */
-
 .select {
   display: inline-block;
 }
 
-.col-1 input {
-  width: 226px;
-}
-
-.col-2 select {
-  width: 96px;
-}
-
-.col-3 select {
-  width: 382px;
-}
-
-.col-full input,
-.col-full textarea {
+.name-group input,
+.date-group select,
+.gender-group select,
+.form-group input,
+.form-group textarea {
   width: 100%;
 }
 
-.col-half input,
-.col-half select {
-  width: 340px;
+.form-group-into-two-collumn input,
+.form-group-into-two-collumn select {
+  width: 47%;
+}
+.name-group input {
+  min-width: 226px;
 }
 
-.flex > div {
+.date-group select {
+  min-width: 96px;
+}
+
+.gender-group select {
+  min-width: 382px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+}
+
+.form-group-into-two-collumn input,
+.form-group-into-two-collumn select {
+  min-width: 340px;
+}
+
+.container > div {
   margin-bottom: 25px;
 }
 
-.m-b-25 {
+.margin-bottom-25 {
   margin-bottom: 25px;
 }
 
-.m-b-15 {
+.margin-bottom-15 {
   margin-bottom: 15px;
 }
 
-.m-b-15 > h4 {
-  margin-bottom: 10px;
+.margin-bottom-15 > h4 {
+  margin-bottom: 15px;
 }
 
-.m-t-15 {
+.margin-top-15 {
   margin-top: 15px;
 }
 
 /* Input, select and textarea fields styling */
-input[type=text],
+select::-ms-expand {
+  display: none; /* remove default arrow on HTML tag select - IE10+ */
+}
+
+input[type="text"],
 textarea {
   border-radius: 3px;
   border: 1px solid rgb(202, 201, 201);
@@ -104,51 +106,46 @@ select {
   -moz-appearance: none;
   -o-appearance: none;
   appearance: none;
-  background-image: url('dropdown.svg');
+  background-image: url("dropdown.svg");
   background-position: 98% center;
-  background-size: 12px 12px; 
+  background-size: 12px 12px;
   background-repeat: no-repeat;
   outline: none;
   box-shadow: none;
   box-sizing: border-box;
-	margin: 0;
+  margin: 0;
   border-radius: 3px;
   border: 1px solid rgb(202, 201, 201);
   color: rgb(163, 162, 162);
   padding-left: 5px;
 }
 
-/* remove default arrow on HTML tag select - IE10+ */
-select::-ms-expand {
-  display: none;
-}
-
-input[type=text],
+input[type="text"],
 select {
   height: 30px;
   margin: 5px 0;
 }
 
-input[type=text] {
+input[type="text"] {
   padding-left: 5px;
 }
 
-input[type=text]::-webkit-input-placeholder,
+input[type="text"]::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
   color: rgb(163, 162, 162);
 }
 
-input[type=text]::-moz-placeholder,
+input[type="text"]::-moz-placeholder,
 textarea::-moz-placeholder {
   color: rgb(163, 162, 162);
 }
 
-input[type=text]:-ms-input-placeholder,
+input[type="text"]:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
   color: rgb(163, 162, 162);
 }
 
-input[type=text]::placeholder,
+input[type="text"]::placeholder,
 textarea::placeholder {
   color: rgb(163, 162, 162);
 }
@@ -164,7 +161,8 @@ textarea {
 
 button {
   background-color: #4caf50;
-  width: 145px;
+  width: 100%;
+  min-width: 145px;
   border: none;
   color: white;
   padding: 10px 4px;
