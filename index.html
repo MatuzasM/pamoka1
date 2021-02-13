@@ -10,15 +10,15 @@
       <div class="container name-group">
         <div>
           <input type="text"><br>
-          <label for="firstname">First Name</label>
+          <label id="firstNameLabel" for="firstname"></label>
         </div>
         <div>
           <input type="text"><br>
-          <label for="middlename">Middle Name</label>
+          <label id="middleNameLabel" for="middlename"></label>
         </div>
         <div>
           <input type="text"><br>
-          <label for="lastname">Last Name</label>
+          <label id="lastNameLabel" for="lastname"></label>
         </div>
       </div>
       <div class="container">
@@ -32,7 +32,7 @@
               <option value="3">...</option>
               <option value="3">12</option>
             </select><br>
-            <label for="month">Month</label>
+            <label id="monthLabel" for="month"></label>
           </div>
           <div class="select">
             <select name="option">
@@ -42,7 +42,7 @@
               <option value="3">...</option>
               <option value="3">31</option>
             </select><br>
-            <label for="day">Day</label>
+            <label id="dayLabel" for="day"></label>
           </div>
           <div class="select">
             <select name="option">
@@ -51,17 +51,17 @@
             <option value="2">2021</option>
             <option value="3">2022</option>
           </select><br>
-          <label for="year">Year</label>
+          <label id="yearLabel" for="year"></label>
           </div>
         </div>
         <div class="gender-group">
-          <h4>Gender</h4>
+          <h4 id="genderLabel"></h4>
           <div class="select">
             <select name="option">
               <option value="" disabled selected>Please Select</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
+              <option value="1">Male</option>
+              <option value="2">Female</option>
+              <option value="3">Other</option>
             </select>
           </div>
         </div>
@@ -69,53 +69,53 @@
       <div class="form-group margin-bottom-25">
         <h4>Address</h4>
         <input type="text"><br>
-        <label for="street">Street Address</label>
+        <label id="streetLabel" for="street"></label>
       </div>
       <div class="form-group margin-bottom-25">
         <input type="text"><br>
-        <label for="street">Street Address Line 2</label>
+        <label id="streetLineTwoLabel" for="streetLineTwoLabel"></label>
       </div>
       <div class="container form-group-into-two-collumn">
         <div>
           <input type="text"><br>
-          <label for="city">City</label>
+          <label id="cityLabel" for="city"></label>
         </div>
         <div>
           <input type="text"><br>
-          <label for="state">State / Province</label>
+          <label id="stateAndProvinceLabel" for="state"></label>
         </div>
       </div>
       <div class="form-group margin-bottom-25">
         <input type="text"><br>
-        <label for="postcode">Postal / Zip Code</label>
+        <label id="postCodeLabel" for="postcode"></label>
       </div>
       <div class="container form-group-into-two-collumn">
         <div>
           <h4>Student E-mail</h4>
           <input type="text" placeholder="ex: myname@example.com"><br>
-          <label for="example-email">example@example.com</label>
+          <label id="exampleEmailLabel" for="example-email"></label>
         </div>
         <div>
-          <h4>Mobile Number</h4>
+          <h4 id="mobileNumberLabel">Mobile Number</h4>
           <input type="text" placeholder="(000) 000-0000">
         </div>
       </div>
       <div class="container form-group-into-two-collumn">
         <div>
-          <h4>Phone Number</h4>
+          <h4 id="phoneNumberLabel">Phone Number</h4>
           <input type="text" placeholder="(000) 000-0000">
         </div>
         <div>
-          <h4>Work Number</h4>
+          <h4 id="workNumberLabel">Work Number</h4>
           <input type="text" placeholder="(000) 000-0000">
         </div>
       </div>
       <div class="form-group-into-two-collumn margin-bottom-25">
-        <h4>Company</h4>
+        <h4 id="companyLabel"></h4>
         <input type="text">
       </div>
       <div class="form-group-into-two-collumn margin-bottom-25">
-        <h4>Courses</h4>
+        <h4 id="coursesLabel"></h4>
         <select name="option">
           <option value="" disabled selected>Please Select</option>
           <option value="1">php</option>
@@ -124,7 +124,7 @@
         </select>
       </div>
       <div class="form-group margin-bottom-15">
-        <h4>Additional Comments</h4>
+        <h4 id="additionalCommentsLabel"></h4>
         <textarea name="" id="" cols="" rows="" placeholder="Type here..."></textarea>
       </div>
       <hr>
@@ -137,6 +137,6 @@
         </div>
       </div>
     </form>
-    <script src="js/all.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
