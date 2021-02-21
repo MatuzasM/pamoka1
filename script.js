@@ -1,43 +1,51 @@
 const form = {
-  firstNameLabel : 'First Name',
-  middleNameLabel : 'Middle Name',
-  lastNameLabel : 'Last Name',
-  monthLabel : [1,2,3,4,5,6,7,8,9,10,11,12],
-  dayLabel : [1,2,3,4,5,6,7,8,9,10,11,12,13,14],
-  yearLabel : [2001,2002,2003,2004,2005,2006,2007,2008,2009,2010],
-  genderLabel : ['male','female','other'],
-  streetLabel : 'Street Address',
-  streetLineTwoLabel : 'Street Address Line 2',
-  cityLabel : 'City',
-  stateAndProvinceLabel : 'State / Province',
-  postCodeLabel : 'Postal / Zip Code',
-  exampleEmailLabel : 'example@example.com',
-  mobileNumberLabel : 'Mobile Number',
-  phoneNumberLabel : 'Phone Number',
-  workNumberLabel : 'Work Number',
-  companyLabel : 'Company',
-  coursesLabel : 'Courses',
-  additionalCommentsLabel : 'Additional Comments'
+  month : ['January','February','March','April','May','June','July','August','September','October','November','December'],
+  day : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+  year : [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021],
+  gender : ['male', 'female', 'other'],
+  course : ['java','javascript','ruby','php']
 }
 
-document.getElementById("firstNameLabel").innerHTML = 'First Name';
-document.getElementById("middleNameLabel").innerHTML = 'Middle Name';
-document.getElementById("lastNameLabel").innerHTML = 'Last Name';
-document.getElementById("monthLabel").innerHTML = 'Month';
-document.getElementById("dayLabel").innerHTML = 'Day';
-document.getElementById("yearLabel").innerHTML = 'Year';
-document.getElementById("genderLabel").innerHTML = 'Gender';
-document.getElementById("streetLabel").innerHTML = 'Street Address';
-document.getElementById("streetLineTwoLabel").innerHTML = 'Street Address Line 2';
-document.getElementById("cityLabel").innerHTML = 'Postal / Zip Code';
-document.getElementById("stateAndProvinceLabel").innerHTML = 'State / Province';
-document.getElementById("postCodeLabel").innerHTML = 'Postal / Zip Code';
-document.getElementById("exampleEmailLabel").innerHTML = 'ex: myname@example.com';
-document.getElementById("mobileNumberLabel").innerHTML = 'Mobile Number';
-document.getElementById("phoneNumberLabel").innerHTML = 'Phone Number';
-document.getElementById("workNumberLabel").innerHTML = 'Work Number';
-document.getElementById("companyLabel").innerHTML = 'Company';
-document.getElementById("coursesLabel").innerHTML = 'Courses';
-document.getElementById("additionalCommentsLabel").innerHTML = 'Additional Comments';
+// FIRST WAY:
+// Month
+let months = form.month;
+let month_Object = "";
+let i;
+for (let i=0; i < months.length; i++) {
+  month_Object += "<option>" + months[i] + "</option>";
+}
+document.getElementById("month").innerHTML = month_Object;
 
+// Day
+let days =  form.day;
+let day_Object = "";
+let a;
+for (let a=0; a < days.length; a++) {
+  day_Object += "<option>" + days[a] + "</option>";
+}
+document.getElementById("day").innerHTML = day_Object;
 
+// 2ND WAY:
+// Year
+let years = form.year;
+let year_Object = "";
+for (let year of years) {
+  year_Object += "<option>" + year + "</option>";
+}
+document.getElementById("year").innerHTML = year_Object;
+
+// Gender
+let genders = form.gender;
+let gender_Object = "";
+for (let gender of genders) {
+  gender_Object += "<option>" + gender + "</option>";
+}
+document.getElementById("gender").innerHTML = gender_Object;
+
+// Courses
+let courses = form.course;
+let course_Object = "";
+for (let course of courses) {
+  course_Object += "<option>" + course + "</option>";
+}
+document.getElementById("courses").innerHTML = course_Object;
