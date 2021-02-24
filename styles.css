@@ -66,6 +66,7 @@ form {
 .form-group-into-two-collumn input,
 .form-group-into-two-collumn select {
   min-width: 340px;
+  display: flex;
 }
 
 .container > div {
