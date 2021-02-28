@@ -1,100 +1,68 @@
+// Generate array of years
+function generateArrayOfYears(length = 1) {
+  var max = new Date().getFullYear()
+  var min = max - 100
+  var years = []
+  for (var i = max; i >= min; i--) {
+    years.push(i)
+  }
+  return years
+}
+
+// Generate array of months
+function generateArrayOfMonths() {
+  const months = [];
+  const d = new Date();
+  for (let month = 0; month < 12; ++month) {
+    d.setMonth(month);
+    months.push(d.toLocaleString(undefined, { month: 'long' }));
+  } return months
+}
+
+// Get month from select element
+function selectMonth() {
+  month = document.getElementById("month").value;
+  return month
+}
+// Get year from select element
+function selectYear() {
+  year = document.getElementById("year").value;
+  return year
+}
+
+// Generate number of days by month and year
+function daysInMonth(month, year) {
+  month = selectMonth();
+  year = selectYear();
+  monthNum = new Date(Date.parse(month + " 1," + year)).getMonth() + 1
+  return new Date(year, monthNum, 0).getDate();
+}
+
+// Generate list of days by month
+function generateDayList() {
+  return Array.from({ length: daysInMonth(month, year) }, (_, i) => i + 1)
+}
+
 const form = {
-  month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-  day: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
-  year: [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021],
+  month: generateArrayOfMonths(),
+  day: generateDayList(),
+  year: generateArrayOfYears(),
   gender: ['male', 'female', 'other'],
-  course: ['java', 'javascript', 'ruby', 'php'],
+  courses: ['java', 'javascript', 'ruby', 'php'],
   city: ['Kaunas', 'Vilnius', 'Klaipeda', 'Panevezys'],
   state: ['Jonava', 'Kedainiai', 'Garliava', 'Prienai', 'Vilkija', 'Raseiniai', 'Elektrenai', 'Salcininkai', 'Sirvintos', 'Trakai', 'Svencionys', 'Ukmerge', 'Neringa', 'Palanga', 'Kretinga', 'Skuodas', 'Silute', 'Pasvalys', 'Birzai', 'Kupiskis', 'Rokiskis']
-
 }
-// FIRST WAY: 
-// Month
-let months = form.month;
-let monthObject = "";
-let i;
-for (let i = 0; i < months.length; i++) {
-  monthObject += "<option>" + months[i] + "</option>";
+
+
+// Create option elements
+function createOption(dataList) {
+  let option = "";
+  for (let dataItem of dataList) {
+    option += "<option>" + dataItem + "</option>";
+  }
+  return option;
 }
-document.getElementById("month").innerHTML = monthObject;
-
-// Day
-let days = form.day;
-let dayObject = "";
-let a;
-for (let a = 0; a < days.length; a++) {
-  dayObject += "<option>" + days[a] + "</option>";
+for (const formKey of Object.keys(form)) {
+  const options = createOption(form[formKey]);
+  document.getElementById(formKey).innerHTML = options;
 }
-document.getElementById("day").innerHTML = dayObject;
-
-// 2ND WAY: Year, Gender, Courses
-let years = form.year;
-let yearObject = "";
-for (let year of years) {
-  yearObject += "<option>" + year + "</option>";
-}
-document.getElementById("year").innerHTML = yearObject;
-
-// Gender
-let genders = form.gender;
-let genderObject = "";
-for (let gender of genders) {
-  genderObject += "<option>" + gender + "</option>";
-}
-document.getElementById("gender").innerHTML = '<option disabled hidden selected>Please Select</option><br>' + genderObject;
-
-// Courses
-let courses = form.course;
-let courseObject = "";
-for (let course of courses) {
-  courseObject += "<option>" + course + "</option>";
-}
-document.getElementById("courses").innerHTML = '<option disabled hidden selected>Please Select</option><br>' + courseObject;
-
-
-// Additional task
-
-// City
-let cities = form.city;
-let cityObject = "";
-for (let city of cities) {
-  cityObject += "<option>" + city + "</option>";
-}
-document.getElementById("city").innerHTML = cityObject;
-
-// State
-let states = form.state;
-let stateObject = "";
-for (let state of states) {
-  stateObject += "<option>" + state + "</option>";
-}
-document.getElementById("state").innerHTML = stateObject;
-
-
-/* ------------DOESNT WORK------------
-// states/city data (DB)
-const states = ['Vilnius', 'Kaunas'];
-const cities = new Map();
-cities.set('Kaunas', ['Jonava', 'Garliava']);
-cities.set('Vilnius', ['Svencionys', 'Elektrenai']);
-
-// select box DOM objects
-stateSelect = document.getElementById('state');
-citySelect = document.getElementById('city');
-
-// load states into state select box
-let stateOptionHtml = '';
-states.forEach((state) => {
-  stateOptionHtml += '<option>' + state + '</option>';
-});
-stateSelect.innerHTML = stateOptionHtml;
-
-stateSelect.onchange = (e) => {
-  const lookedUpCities = cities.get(e.target.value); // get cities array with the selected state
-  // load cities into city select box
-  let cityOptionHtml = '';
-  lookedUpCities.forEach((city) => {
-    cityOptionHtml += '<option>' + city + '</option>';
-  });
-  citySelect.innerHTML = cityOptionHtml;
-}; */
