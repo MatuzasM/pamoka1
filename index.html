@@ -1,141 +1,118 @@
 <html>
-  <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body> 
-    <form action="">
-      <p class="bold" for="Sname">Student Name</p>
-      <div class="flex gap10 col-1">
-        <div>
-          <input type="text"><br>
-          <label for="firstname">First Name</label>
-        </div>
-        <div>
-          <input type="text"><br>
-          <label for="firstname">Middle Name</label>
-        </div>
-        <div>
-          <input type="text"><br>
-          <label for="firstname">Last Name</label>
-        </div>
+
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <form action="">
+    <h4>Student Name</h4>
+    <div class="container name-group">
+      <div>
+        <input type="text"><br>
+        <label for="firstname">First Name</label>
       </div>
-      <div class="flex gap20">
-        <div class="col-2">
-          <p class="bold">Birth Date</p>
-          <div class="select">
-            <select name="option">
-              <option value=""></option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">...</option>
-              <option value="3">12</option>
-            </select><br>
-            <label for="month">Month</label>
-          </div>
-          <div class="select">
-            <select name="option">
-              <option value=""></option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">...</option>
-              <option value="3">31</option>
-            </select><br>
-            <label for="day">Day</label>
-          </div>
-          <div class="select">
-            <select name="option">
-            <option value=""></option>
-            <option value="1">2020</option>
-            <option value="2">2021</option>
-            <option value="3">2022</option>
-          </select><br>
+      <div>
+        <input type="text"><br>
+        <label for="middlename">Middle Name</label>
+      </div>
+      <div>
+        <input type="text"><br>
+        <label for="lastname">Last Name</label>
+      </div>
+    </div>
+    <div class="container">
+      <div class="date-group">
+        <h4>Birth Date</h4>
+        <div class="select">
+          <select onchange="selectMonth()" id="month" name="option"></select><br>
+          <label for="month">Month</label>
+        </div>
+        <div class="select">
+          <select id="day" name="option"></select><br>
+          <label for="day">Day</label>
+        </div>
+        <div class="select">
+          <select onchange="selectYear()" id="year" name="option"></select><br>
           <label for="year">Year</label>
-          </div>
-        </div>
-        <div class="col-3">
-          <p class="bold">Gender</p>
-          <div class="select">
-            <select name="option">
-              <option value="" disabled selected>Please Select</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-            </select>
-          </div>
         </div>
       </div>
-      <div class="col-full m-b-25">
-        <p class="bold">Address</p>
-        <input type="text"><br>
-        <label for="street">Street Address</label>
-      </div>
-      <div class="col-full m-b-25">
-        <input type="text"><br>
-        <label for="street">Street Address Line 2</label>
-      </div>
-      <div class="flex gap20 col-half">
-        <div>
-          <input type="text"><br>
-          <label for="city">City</label>
-        </div>
-        <div>
-          <input type="text"><br>
-          <label for="state">State / Province</label>
+      <div class="gender-group">
+        <h4 id="genderLabel">Gender</h4>
+        <div class="select">
+          <select id="gender" name="option"></select>
         </div>
       </div>
-      <div class="col-full m-b-25">
-        <input type="text"><br>
-        <label for="postcode">Postal / Zip Code</label>
+    </div>
+    <div class="form-group margin-bottom-25">
+      <h4>Address</h4>
+      <input type="text"><br>
+      <label for="street">Street Address</label>
+    </div>
+    <div class="form-group margin-bottom-25">
+      <input type="text"><br>
+      <label for="streetLineTwoLabel">Street Address Line 2</label>
+    </div>
+    <div class="container form-group-into-two-collumn">
+      <div>
+        <select id="city" name="option"></select>
+        <label for="city">City</label>
       </div>
-      <div class="flex gap20 col-half">
-        <div>
-          <label class="bold" for="email">Student E-mail</label><br>
-          <input type="text" placeholder="ex: myname@example.com"><br>
-          <label for="example-email">example@example.com</label>
-        </div>
-        <div>
-          <label class="bold" for="mobile-number">Mobile Number</label><br>
-          <input type="text" placeholder="(000) 000-0000">
-        </div>
+      <div>
+        <select id="state" name="option"></select>
+        <label for="state">State / Province</label>
       </div>
-      <div class="flex gap20 col-half">
-        <div>
-          <label class="bold" for="phone-number">Phone Number</label><br>
-          <input type="text" placeholder="(000) 000-0000">
-        </div>
-        <div>
-          <label class="bold" for="work-number">Work Number</label><br>
-          <input type="text" placeholder="(000) 000-0000">
-        </div>
+    </div>
+    <div class="form-group margin-bottom-25">
+      <input type="text"><br>
+      <label for="postcode">Postal / Zip Code</label>
+    </div>
+    <div class="container form-group-into-two-collumn">
+      <div>
+        <h4>Student E-mail</h4>
+        <input type="text" placeholder="ex: myname@example.com"><br>
+        <label for="example-email">example@example.com</label>
       </div>
-      <div class="col-half m-b-25">
-        <label class="bold" for="company">Company</label><br>
-        <input type="text">
+      <div>
+        <h4 id="mobileNumberLabel">Mobile Number</h4>
+        <input type="text" placeholder="(000) 000-0000">
       </div>
-      <div class="col-half m-b-25">
-        <label class="bold" for="courses">Courses</label><br>
-        <select name="option">
-          <option value="" disabled selected>Please Select</option>
-          <option value="1">php</option>
-          <option value="2">java</option>
-          <option value="3">javascript</option>
-        </select>
+    </div>
+    <div class="container form-group-into-two-collumn">
+      <div>
+        <h4 id="phoneNumberLabel">Phone Number</h4>
+        <input type="text" placeholder="(000) 000-0000">
       </div>
-      <div class="col-full m-b-15">
-        <label class="bold margin" for="comments">Additional Comments</label>
-        <textarea name="" id="" cols="" rows="" placeholder="Type here..."></textarea>
+      <div>
+        <h4 id="workNumberLabel">Work Number</h4>
+        <input type="text" placeholder="(000) 000-0000">
       </div>
-      <hr>
-      <div class="flex gap-btn m-t-15">
-        <div>
-          <button>Submit Application</button>
-        </div>
-        <div>
-          <button>Clear Fields</button>
-        </div>
+    </div>
+    <div class="form-group-into-two-collumn margin-bottom-25">
+      <h4 id="companyLabel">Company</h4>
+      <input type="text">
+    </div>
+    <div class="form-group-into-two-collumn margin-bottom-25">
+      <h4 id="coursesLabel">Courses</h4>
+      <select id="courses" name="option"></select>
+    </div>
+    <div class="form-group margin-bottom-15">
+      <h4>Additional Comments</h4>
+      <textarea name="" id="" cols="" rows="" placeholder="Type here..."></textarea>
+    </div>
+    <hr>
+    <div class="container margin-top-15">
+      <div>
+        <button>Submit Application</button>
       </div>
-    </form>
-  </body>
+      <div>
+        <button>Clear Fields</button>
+      </div>
+    </div>
+  </form>
+  <script src="script.js"></script>
+</body>
+
 </html>
