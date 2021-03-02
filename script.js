@@ -1,4 +1,4 @@
-/* // Get month from select element
+// Get month from select element
 function selectMonth() {
   return document.getElementById("month").value;
 }
@@ -6,7 +6,7 @@ function selectMonth() {
 function selectYear() {
   return document.getElementById("year").value;
 }
- */
+
 var currentTime = new Date().getFullYear()
 
 function generateArrayOfYears(length = 0) {
@@ -16,7 +16,16 @@ function generateArrayOfYears(length = 0) {
   for (var i = max; i >= min; i--) {
     years.push(i)
   }
-  return Array.from({ length: years.length-1 }, (v, i) => ({ value: i, label: years[i] }));
+  return Array.from({ length: years.length - 1 }, (v, i) => ({ value: i, label: years[i] }));
+}
+
+// Get month from select element
+function selectMonth() {
+  return document.getElementById("month").value;
+}
+// Get year from select element
+function selectYear() {
+  return document.getElementById("year").value;
 }
 
 function generateArrayOfDays(month = 2, year = currentTime) {
@@ -25,28 +34,28 @@ function generateArrayOfDays(month = 2, year = currentTime) {
 }
 
 function generateArrayOfMonths() {
-  let months = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ];
+  let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   return Array.from({ length: months.length }, (v, i) => ({ value: i, label: months[i] }));
 }
 
 function generateArrayOfGenders() {
   let genders = ['male', 'female', 'other'];
-  return Array.from({ length: genders.length }, (v, i) => ({ value: i, label: genders[i] }));
+  return Array.from({ length: genders.length }, (v, i) => ({ value: genders[i], label: genders[i] }));
 }
 
 function generateArrayOfCourses() {
   let courses = ['java', 'javascript', 'ruby', 'php']
-  return Array.from({ length: courses.length }, (v, i) => ({ value: i, label: courses[i] }));
+  return Array.from({ length: courses.length }, (v, i) => ({ value: courses[i], label: courses[i] }));
 }
 
 function generateArrayOfCity() {
   let city = ['Kaunas', 'Vilnius', 'Klaipeda', 'Panevezys'];
-  return Array.from({ length: city.length }, (v, i) => ({ value: i, label: city[i] }));
+  return Array.from({ length: city.length }, (v, i) => ({ value: city[i], label: city[i] }));
 }
 
 function generateArrayOfState() {
-  let state = ['Jonava', 'Kedainiai', 'Garliava', 'Prienai', 'Vilkija', 'Raseiniai', 'Elektrenai', 'Salcininkai', 'Sirvintos', 'Trakai', 'Svencionys', 'Ukmerge', 'Neringa', 'Palanga', 'Kretinga', 'Skuodas', 'Silute', 'Pasvalys', 'Birzai', 'Kupiskis', 'Rokiskis'];
-  return Array.from({ length: state.length }, (v, i) => ({ value: i, label: state[i] }));
+  let state = ['Jonava', 'Kedainiai', 'Garliava', 'Prienai', 'Vilkija', 'Raseiniai'];
+  return Array.from({ length: state.length }, (v, i) => ({ value: state[i], label: state[i] }));
 }
 
 const form = {
@@ -62,7 +71,8 @@ const form = {
 // Create option elements
 function createOption(dataList) {
   let option = "";
-  for (let dataItem of dataList) {
+  console.log(dataList)
+  for (let dataItem of Object.keys(dataList)) {
     option += "<option>" + dataItem + "</option>";
   }
   return option;
@@ -71,3 +81,4 @@ for (const formKey of Object.keys(form)) {
   const options = createOption(form[formKey]);
   document.getElementById(formKey).innerHTML = options;
 }
+
