@@ -11,22 +11,9 @@ function generateArrayOfYears(length = 0) {
   return Array.from({ length: years.length - 1 }, (v, i) => ({ value: i, label: years[i] }));
 }
 
-function selectMonth() {
-  var selectedMonth = document.getElementById("month");
-  return month = selectedMonth.selectedIndex > -1 ? selectedMonth.options[selectedMonth.selectedIndex].value : 0;
-}
-
-function selectYear() {
-  var selectedYear = document.getElementById("year");
-  return year = selectedYear.selectedIndex > -1 ? selectedYear.options[selectedYear.selectedIndex].text : currentTime;
-}
-
 // Generate days by month, year
-function generateArrayOfDays() {
-  log(selectMonth())
-  log(selectYear())
-  days = new Date(selectYear(), selectMonth(), 0).getDate();
-  log(days)
+function generateArrayOfDays(year = currentTime, month = 1) {
+  days = new Date(year, month, 0).getDate();
   return Array.from({ length: days }, (v, i) => ({ value: i + 1, label: i + 1 }));
 }
 
@@ -65,6 +52,30 @@ const form = {
   state: generateArrayOfState()
 }
 
+function selectMonth() {
+  var selectedMonth = document.getElementById("month");
+  return month = selectedMonth.selectedIndex > -1 ? selectedMonth.options[selectedMonth.selectedIndex].value : 0;
+}
+
+function selectYear() {
+  var selectedYear = document.getElementById("year");
+  //return year = selectedYear.selectedIndex > -1 ? selectedYear.options[selectedYear.selectedIndex].text : currentTime;
+  return year = 2021
+}
+
+// meh
+function updateDays() {
+  let days = new Date(selectYear(), selectMonth(), 0).getDate();
+  generatedDay = Array.from({ length: days }, (v, i) => ({ value: i + 1, label: i + 1 }));
+  form.day = generatedDay
+  for (const dayItem of form.day) {
+    const options = createOption1(form.day);
+    document.getElementById("day").innerHTML = options;
+  }
+}
+
+
+
 // Create option elements
 function createOption(dataList) {
   let option = "";
@@ -77,6 +88,3 @@ for (const formKey of Object.keys(form)) {
   const options = createOption(form[formKey]);
   document.getElementById(formKey).innerHTML = options;
 }
-
-document.getElementById("month").addEventListener("change", selectMonth);
-document.getElementById("year").addEventListener("change", selectYear);
