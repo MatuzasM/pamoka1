@@ -57,11 +57,11 @@
     </div>
     <div class="container form-group-into-two-collumn">
       <div>
-        <select id="city" name="option"></select>
+        <select id="city" onchange="selectCity(this)" name="city"></select>
         <label for="city">City</label>
       </div>
       <div>
-        <select id="state" name="option"></select>
+        <select id="state" onchange="selectState(this)" name="state"></select>
         <label for="state">State / Province</label>
       </div>
     </div>
@@ -78,19 +78,19 @@
       <div>
         <h4 id="mobileNumberLabel">Mobile Number</h4>
         <input type="text" name="mobileNumber" id="number" placeholder="+370 600 00000">
-        <p>example@example.com</p>
+        <p>+370 600 00000</p>
       </div>
     </div>
     <div class="container form-group-into-two-collumn">
       <div>
         <h4 id="phoneNumberLabel">Phone Number</h4>
         <input type="text" name="phoneNumber" id="number" placeholder="+37060000000">
-        <p>example@example.com</p>
+        <p>+37060000000</p>
       </div>
       <div>
         <h4 id="workNumberLabel">Work Number</h4>
         <input type="text" name="workNumber" id="number" placeholder="37060000000">
-        <p>example@example.com</p>
+        <p>37060000000</p>
       </div>
     </div>
     <div class="form-group-into-two-collumn margin-bottom-25">
