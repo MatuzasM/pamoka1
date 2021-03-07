@@ -78,3 +78,6 @@ for (const formKey of Object.keys(form)) {
   const options = createOption(form[formKey]);
   document.getElementById(formKey).innerHTML = options;
 }
+
+
+document.getElementById('phone')
