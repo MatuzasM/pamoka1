@@ -9,6 +9,7 @@ const patterns = {
   // a-z, numbers, hyphen, minumum 1 symbol
   // a-z, 2 to 8 length
 };
+
 // add valid or unvalid class for id's
 function validate(field, regex) {
   if (regex.test(field.value)) {
@@ -18,6 +19,7 @@ function validate(field, regex) {
   }
 }
 
+// eventListener cycle
 inputs.forEach((input) => {
   input.addEventListener("keyup", (e) => {
     validate(e.target, patterns[e.target.attributes.id.value])
