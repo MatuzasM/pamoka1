@@ -32,21 +32,34 @@ function generateArrayOfCourses() {
 }
 
 // Data object for state/city
-const stateByCity = {
-  Texas: ['El Paso', 'Dallas'],
-  Florida: ['Miami', 'Orlando'],
-  Indiana: ['Indianapolis', 'Madison'],
-  Nevada: ['Las Vegas', 'Virginia City']
+const cityByState = {
+  texas: ['El Paso', 'Dallas'],
+  florida: ['Miami', 'Orlando'],
+  indiana: ['Indianapolis', 'Madison'],
+  nevada: ['Las Vegas', 'Virginia City']
+}
+// Object.keys(stateByCity)
+// Object.values(cityByState).flat()
+
+function generateArrayOfCity(city = Object.values(cityByState).flat()) {
+  return Array.from({ length: city.length }, (v, i) => ({ value: city[i].replace(/\s+/g, '-').toLowerCase(), label: city[i] }));
 }
 
-function generateArrayOfCity() { //Object.values(stateByCity).flat();
-  let city = ['El Paso', 'Dallas', 'Miami', 'Orlando', 'Indianapolis', 'Madison', 'Las Vegas', 'Virginia City'];
-  return Array.from({ length: city.length }, (v, i) => ({ value: i, label: city[i] }));
+function generateArrayOfState() {
+  let state = Object.keys(cityByState)
+  return Array.from({ length: state.length }, (v, i) => ({ value: state[i], label: state[i] })); // change value to word - city[i].replace(/\s+/g, '-').toLowerCase()
 }
 
-function generateArrayOfState() { //Object.keys(stateByCity)
-  let state = ['Texas', 'Florida', 'Indiana', 'Nevada'];
-  return Array.from({ length: state.length }, (v, i) => ({ value: i, label: state[i] }));
+function selectState() {
+  let selectedStateValue = document.getElementById("state").value;
+  form.city = generateArrayOfCity(cityByState[selectedStateValue])
+  const options = createOption(form.city);
+  document.getElementById('city').innerHTML = options;
+}
+
+function selectCity() {
+  let selectedCityValue = document.getElementById("city").value.replace(/[-]+/g, ' ');
+
 }
 
 // Data object
@@ -58,10 +71,6 @@ const form = {
   courses: generateArrayOfCourses(),
   city: generateArrayOfCity(),
   state: generateArrayOfState()
-}
-
-function selectState() {
-
 }
 
 // eventListener functions
@@ -80,9 +89,6 @@ function selectYear() {
   document.getElementById('month').innerHTML = options;
   selectMonth();
 }
-
-
-
 
 // Create option elements
 function createOption(dataList) {
