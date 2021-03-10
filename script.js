@@ -33,20 +33,17 @@ function generateArrayOfCourses() {
 
 // Data object for state/city
 const cityByState = {
-  texas: ['El Paso', 'Dallas'],
+  texas: ['Elpaso', 'Dallas'],
   florida: ['Miami', 'Orlando'],
   indiana: ['Indianapolis', 'Madison'],
-  nevada: ['Las Vegas', 'Virginia City']
+  nevada: ['Lasvegas', 'Virginiacity']
 }
-// Object.keys(stateByCity)
-// Object.values(cityByState).flat()
 
 function generateArrayOfCity(city = Object.values(cityByState).flat()) {
   return Array.from({ length: city.length }, (v, i) => ({ value: city[i].replace(/\s+/g, '-').toLowerCase(), label: city[i] }));
 }
 
-function generateArrayOfState() {
-  let state = Object.keys(cityByState)
+function generateArrayOfState(state = Object.keys(cityByState)) {
   return Array.from({ length: state.length }, (v, i) => ({ value: state[i], label: state[i] })); // change value to word - city[i].replace(/\s+/g, '-').toLowerCase()
 }
 
@@ -58,8 +55,16 @@ function selectState() {
 }
 
 function selectCity() {
-  let selectedCityValue = document.getElementById("city").value.replace(/[-]+/g, ' ');
-
+  let selectedCityValue = document.getElementById("city").value.replace(/[-]/g, ' ');
+  upperCaseCity = selectedCityValue.charAt(0).toUpperCase() + selectedCityValue.slice(1);
+  state = findStateByCity(upperCaseCity);
+  document.getElementById('state').innerHTML = "<option value=" + state + ">" + state + "</option>";
+}
+function findStateByCity(cityUpperCased) {
+  for (city in cityByState) {
+    if (cityByState[city].includes(cityUpperCased)) return city;
+  }
+  return false;
 }
 
 // Data object
